@@ -29,8 +29,9 @@ type Subcategory struct {
 }
 
 type Item struct {
-	Name    string `yaml:"name"`
-	RepoURL string `yaml:"repo_url"`
+	Name    string                 `yaml:"name"`
+	RepoURL string                 `yaml:"repo_url"`
+	Extra   map[string]interface{} `yaml:"extra,omitempty"`
 }
 
 type RepoScore struct {
@@ -66,13 +67,19 @@ func main() {
 		log.Fatal("Error unmarshalling YAML:", err)
 	}
 
-	// Extract GitHub repo URLs
+	// Extract GitHub repo URLs for incubating and graduated projects
 	var githubRepos []string
 	for _, category := range landscape.Landscape {
 		for _, subcategory := range category.Subcategories {
 			for _, item := range subcategory.Items {
-				if strings.HasPrefix(item.RepoURL, "https://github.com/") {
-					githubRepos = append(githubRepos, item.RepoURL)
+				// Check if the item has the 'extra' property
+				if item.Extra != nil {
+					// Check if the 'incubating' or 'graduated' property exists in the 'extra' map
+					if _, incubating := item.Extra["incubating"]; incubating {
+						githubRepos = append(githubRepos, item.RepoURL)
+					} else if _, graduated := item.Extra["graduated"]; graduated {
+						githubRepos = append(githubRepos, item.RepoURL)
+					}
 				}
 			}
 		}
@@ -87,10 +94,10 @@ func main() {
 	var repoScores []RepoScore
 	fmt.Println("Calculating scores for CNCF landscape projects...")
 	for i, repoURL := range githubRepos {
-		// just for testing in order to avoid reaching rete limit on github api
-		if i >= 10 {
-			break
-		}
+		// Uncomment for testing purposes
+		// if i > 3 {
+		// 	break
+		// }
 		fmt.Printf("Project %d of %d\n", i+1, len(githubRepos))
 		repo, err := criticalityscore.LoadRepository(repoURL, token)
 		if err != nil {
