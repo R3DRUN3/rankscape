@@ -8,7 +8,13 @@ Ranking of *Cloud Native Computing Foundation* landscape projects via *Criticali
 
 
 ## Abstract
-This repo ranks all the *incubating* and *graduated* [CNCF projects](https://github.com/cncf/landscape) using [this](https://github.com/engelsjk/criticalityscore) porting of the [criticality score](https://github.com/ossf/criticality_score).  
+The [CNCF projects](https://github.com/cncf/landscape) are growing in number, making it increasingly difficult to keep track of them all.  
+While some aim to address similar challenges, others operate in distinct domains, yet they all share a common attribute:  
+**critical importance to modern infrastructures**.  
+<br/>
+
+This repository is driven by the primary rationale of maintaining an up-to-date ranking of both *incubating* and *graduated* projects, leveraging the **criticality score** as a benchmark.  
+
 
 
 ## Ranking
