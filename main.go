@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"log"
 	"net/http"
 	"os"
@@ -40,7 +40,7 @@ func main() {
 	defer resp.Body.Close()
 
 	// Read YAML content
-	yamlData, err := ioutil.ReadAll(resp.Body)
+	yamlData, err := io.ReadAll(resp.Body)
 	if err != nil {
 		log.Fatal("Error reading YAML data:", err)
 	}
