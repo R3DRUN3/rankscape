@@ -1,0 +1,7 @@
+# macos
+.DS_Store
+
+# local dev
+secrets.json
+
+.vscode
