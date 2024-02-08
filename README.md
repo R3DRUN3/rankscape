@@ -15,6 +15,20 @@ While some aim to address similar challenges, others operate in distinct domains
 
 This repository is driven by the primary rationale of maintaining an up-to-date ranking of both *incubating* and *graduated* projects, leveraging the [**criticality score**](https://github.com/ossf/criticality_score) as a benchmark.  
 
+## How It Works
+This repository contains a *Go* script that performs the following tasks:
+1. Retrieves the [official list of projects](https://github.com/cncf/landscape/blob/master/landscape.yml) from the *CNCF landscape*.
+1. For each project in the `incubating` and/or `graduated` state, calculates its score using [this](https://github.com/engelsjk/criticalityscore/) port of the *criticality score*.
+1. Sorts the projects by score from highest to lowest.
+1. Updates this same *README* by replacing the placeholder `<!--TABLE_PLACEHOLDER-->` with the HTML table of the final ranking (see it below).  
+
+
+> [!NOTE]  
+> Each project is processed sequentially; hence, script execution takes a few minutes to complete.  
+> I attempted parallelization using Go routines, but I was immediately rate-limited by the GitHub APIs.  
+
+
+<br/>
 
 
 ## Ranking
