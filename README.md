@@ -23,6 +23,9 @@ This repository contains a *Go* script that performs the following tasks:
 1. Updates this same *README* by replacing the placeholder `<!--TABLE_PLACEHOLDER-->` with the HTML table of the final ranking (see it below).  
 
 
+
+In order to work, the script needs a github token: `export GITHUB_AUTH_TOKEN=<github-token-here>`
+
 > [!NOTE]  
 > Each project is processed sequentially; hence, script execution takes a few minutes to complete.  
 > I attempted parallelization using Go routines, but I was immediately rate-limited by the GitHub APIs.  
