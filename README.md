@@ -13,7 +13,7 @@ While some aim to address similar challenges, others operate in distinct domains
 **critical importance to modern infrastructures**.  
 <br/>
 
-This repository is driven by the primary rationale of maintaining an up-to-date ranking of both *incubating* and *graduated* projects, leveraging the **criticality score** as a benchmark.  
+This repository is driven by the primary rationale of maintaining an up-to-date ranking of both *incubating* and *graduated* projects, leveraging the [**criticality score**](https://github.com/ossf/criticality_score) as a benchmark.  
 
 
 
