@@ -1,5 +1,5 @@
 # CNCF Landscape Ranking 🖼 📈
-<img src="images/cncf_logo.png" alt="cncf" height="150" width="150">  
+<img src="images/lndscp.jpg" alt="cncf" height="150" width="150">  
 
 
 <br/>
